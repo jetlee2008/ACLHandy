@@ -52,5 +52,8 @@
             </Grid>
 
         </StackPanel>
+        <StackPanel Grid.Row="2">
+            <Label Height="50" VerticalContentAlignment="Center" Margin="20,0" Content="{Binding Path=FooterInfo}"></Label>
+        </StackPanel>
     </Grid>
 </Window>

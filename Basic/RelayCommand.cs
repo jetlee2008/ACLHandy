@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
 
 namespace ACLHandy.Basic
 {
@@ -27,6 +28,15 @@ namespace ACLHandy.Basic
         public void Execute(object parameter)
         {
             this.execute();
+            
+        }
+
+        internal void RaiseCanExecuteChanged()
+        {
+            if (CanExecuteChanged != null)
+            {
+                CanExecuteChanged(this, new EventArgs());
+            }
         }
     }
 }
