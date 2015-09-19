@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ACLHandy.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,22 @@ namespace ACLHandy
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainViewModel mainViewModel { get; set; }
         public MainWindow()
         {
+            mainViewModel = new MainViewModel();
+            this.DataContext = mainViewModel;
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var form = new RecordForm();
+            if (form.ShowDialog() == true)
+            {
+                mainViewModel.RecordList.Add(form.ViewModel);
+            }
+
         }
     }
 }
